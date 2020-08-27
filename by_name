@@ -1,0 +1,99 @@
+import urllib.request
+import transcript as mrt
+#from fake_useragent import UserAgent
+#hdr = {
+#    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
+#    "Accept-Encoding": "gzip, deflate", 
+#    "Accept-Language": "en-GB,en-US;q=0.9,en;q=0.8", 
+#    "Dnt": "1", 
+#    "Host": "httpbin.org", 
+#    "Upgrade-Insecure-Requests": "1", 
+#    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36", 
+#  }
+d = 1
+m = 1
+rs = '\033[0m'
+f = '\033[34mНАШЛО! \033[32m'
+er = "\033[34mОшибка: \033[31m"
+
+hts = 'http://telegra.ph/'
+
+while 1:
+	rurl = input("Введите запрос, без символов!: ")
+	if rurl == '':
+		print('\033[34m\033[1mТут пусто!' + rs)
+	else:
+		rurl = mrt.transcript(rurl)
+		break
+
+print('\033[34m Поиск \033[1m' + rurl + rs + ' \033[34mначался, можете пойти выпить чаю, менее чем через минут 20 в файле \033[1m' + rurl + '.txt\033[0m\033[34m вы увидите все найденые статьи.' + rs)
+
+ff = open(rurl + '.txt', 'a')
+
+while d <= 31:
+	hts = 'http://telegra.ph/'
+	req = rurl + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0')
+	try:
+		response = urllib.request.urlopen(hts + req)
+		print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+		
+		ff.write('\n' + hts+req)
+		
+		end = 0
+		num =1
+		tryr = 0
+		
+		while end == 0:
+			req = hts + rurl + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
+			try:
+				response = urllib.request.urlopen(req)
+				print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+				ff.write('\n' + hts+req)
+				num += 1
+			except Exception as e:
+				print(er + str(e) + ' ' + req + rs)
+				if tryr == 0:
+					print('\033[34mПопробуем ещё раз...' + rs)
+					num += 1
+					tryr = 1
+				else:
+					end = 1
+	except Exception as e:
+		print(er + str(e) + ' ' + hts + req + rs)
+		
+		
+		hts = 'http://te.legra.ph/'
+	
+	try:
+		response = urllib.request.urlopen(hts + req)
+		print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+		ff.write('\n' + hts+req)
+		end = 0
+		num =1
+		tryr = 0
+
+		while end == 0:
+			req = hts + rurl + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
+			try:
+				response = urllib.request.urlopen(req)
+				print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+				ff.write('\n' + hts+req)
+				num += 1
+			except Exception as e:
+				print(er + str(e) + ' ' + req + rs)
+				if tryr == 0:
+					print('\033[34mПопробуем ещё раз...' + rs)
+					num += 1
+					tryr = 1
+				else:
+					end = 1
+					
+	except Exception as e:
+		print(er + str(e) + ' ' + hts + req + rs)
+	
+	d += 1
+	if d == 32:
+		d = 1
+		m = 2
+
+ff.close()
