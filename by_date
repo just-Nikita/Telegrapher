@@ -1,5 +1,6 @@
 import urllib.request
-
+import os
+os.system('clear')
 while 1:
 	try:
 		m = input("Введите месяц (01): ")
