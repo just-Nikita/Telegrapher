@@ -12,7 +12,7 @@ er = "\033[34mОшибка: \033[31m"
 hts = 'http://telegra.ph/'
 
 while 1:
-	rurl = input("\033[34mВведите запрос, \033[1mбез символов!" + rs + "\033[34m: " + rs)
+	rurl = input("Введите запрос, без символов!: ")
 	if rurl == '':
 		print('\033[34m\033[1mТут пусто!' + rs)
 	else:
@@ -40,7 +40,7 @@ while d <= 31:
 			print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
 			ff.write('\n' + hts+req)
 			end = 0
-			num =1
+			num = 2
 			tryr = 0
 
 			while end == 0:
@@ -64,7 +64,7 @@ while d <= 31:
 	
 		
 		end = 0
-		num =1
+		num = 2
 		tryr = 0
 		
 		while end == 0:
@@ -90,5 +90,6 @@ while d <= 31:
 	if d == 32:
 		d = 1
 		m += 2
+		
 ff.write('\n')
 ff.close()
