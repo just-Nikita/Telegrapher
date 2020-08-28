@@ -47,7 +47,7 @@ while 1:
 		response = urllib.request.urlopen(req)
 		print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
 		ff.write('\n' + req + '\n')
-		num += 1
+	
 		
 		link = 'http://te.legra.ph/'
 		while 1:
@@ -56,7 +56,7 @@ while 1:
 				response = urllib.request.urlopen(req)
 				print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
 				ff.write('\n' + req + '\n')
-				num += 1
+				
 				break
 			except Exception as e:
 				print('Ошибка:' + str(e) + ' ' + req)
@@ -66,10 +66,11 @@ while 1:
 		print('Ошибка:' + str(e) + ' ' + req)
 		if er <= fer:
 			print('\033[34mПопробуем ещё раз...' + rs)
-			num += 1
+			
 			er += 1
 		else:
 			break
+	num += 1
 			
 ff.write('\n')
 ff.close()
