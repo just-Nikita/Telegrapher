@@ -30,7 +30,7 @@ def telegra(hts, rurl, m, d, num):
 		try:
 			response = urllib.request.urlopen(req)
 			print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
-			ff.write('\n' + hts+req + '\n')
+			ff.write('\n' + hts+req)
 			num += 1
 		except Exception as e:
 			print(er + str(e) + ' ' + req + rs)
@@ -45,7 +45,7 @@ while d <= 31:
 		response = urllib.request.urlopen(hts + req)
 		print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
 		
-		ff.write('\n' + hts+req + '\n')
+		ff.write('\n' + hts+req)
 		num = 2
 		telegra(hts, rurl, m, d, num)
 		
@@ -54,7 +54,7 @@ while d <= 31:
 		try:
 			response = urllib.request.urlopen(hts + req)
 			print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
-			ff.write('\n' + hts+req + '\n')
+			ff.write(hts+req + '\n')
 
 			num = 2
 
