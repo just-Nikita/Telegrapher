@@ -31,43 +31,34 @@ link = 'http://telegra.ph/'
 mainvar = str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0')
 
 ff = open(str(m) + '-' + str(d) + '.txt', 'a')
-end = 0
-num = 1
+
+num = 2
 er = -1
 rs = '\033[0m'
 f = '\033[32mНашло!: '
 
-while end == 0:
+while 1:
+	link = 'http://telegra.ph/'
 	req = link + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
 	try:
 		response = urllib.request.urlopen(req)
 		print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
 		ff.write('\n' + req)
 		num += 1
-	except Exception as e:
-		print('Ошибка:' + str(e) + ' ' + req)
-		if er <= fer:
-			print('\033[34mПопробуем ещё раз...' + rs)
-			num += 1
-			er += 1
-		else:
-			end = 1
+		
+		link = 'http://te.legra.ph/'
+		while 1:
+			req = link + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
+			try:
+				response = urllib.request.urlopen(req)
+				print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+				ff.write('\n' + req)
+				num += 1
+				break
+			except Exception as e:
+				print('Ошибка:' + str(e) + ' ' + req)
+				break
 			
-link = 'http://te.legra.ph/'
-print('\033[34m\033[1m' + link + rs)
-end = 0
-num = 1
-er = -1
-rs = '\033[0m'
-f = '\033[32mНашло!: '
-
-while end == 0:
-	req = link + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
-	try:
-		response = urllib.request.urlopen(req)
-		print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
-		ff.write('\n' + req)
-		num += 1
 	except Exception as e:
 		print('Ошибка:' + str(e) + ' ' + req)
 		if er <= fer:
@@ -75,4 +66,7 @@ while end == 0:
 			num += 1
 			er += 1
 		else:
-			end = 1
+			break
+			
+ff.write('\n')
+ff.close()
