@@ -1,5 +1,6 @@
 import urllib.request
 import transcript as mrt
+from datetime import datetime
 import os
 os.system('clear')
 
@@ -35,6 +36,7 @@ def telegra(hts, rurl, m, d, num):
 			print(er + str(e) + ' ' + req + rs)
 			break
 
+print('\n' + str(datetime.today()) + '\n')
 
 while d <= 31:
 	hts = 'http://telegra.ph/'
@@ -75,3 +77,5 @@ while d <= 31:
 		
 ff.write('\n')
 ff.close()
+
+print('\n' + str(datetime.today()) + '\n')
