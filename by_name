@@ -32,39 +32,41 @@ while d <= 31:
 		
 		ff.write('\n' + hts+req)
 		
-		end = 0
-		num =1
-		tryr = 0
-		
-		while end == 0:
-			req = hts + rurl + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
-			try:
-				response = urllib.request.urlopen(req)
-				print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
-				ff.write('\n' + hts+req)
-				num += 1
-			except Exception as e:
-				print(er + str(e) + ' ' + req + rs)
-				if tryr == 0:
-					print('\033[34mПопробуем ещё раз...' + rs)
-					num += 1
-					tryr = 1
-				else:
-					end = 1
-	except Exception as e:
-		print(er + str(e) + ' ' + hts + req + rs)
-		
 		
 		hts = 'http://te.legra.ph/'
 	
-	try:
-		response = urllib.request.urlopen(hts + req)
-		print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
-		ff.write('\n' + hts+req)
+		try:
+			response = urllib.request.urlopen(hts + req)
+			print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+			ff.write('\n' + hts+req)
+			end = 0
+			num =1
+			tryr = 0
+
+			while end == 0:
+				req = hts + rurl + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
+				try:
+					response = urllib.request.urlopen(req)
+					print(f + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
+					ff.write('\n' + hts+req)
+					num += 1
+				except Exception as e:
+					print(er + str(e) + ' ' + req + rs)
+					if tryr == 0:
+						print('\033[34mПопробуем ещё раз...' + rs)
+						num += 1
+						tryr = 1
+					else:
+						end = 1
+					
+		except Exception as e:
+			print(er + str(e) + ' ' + hts + req + rs)
+	
+		
 		end = 0
 		num =1
 		tryr = 0
-
+		
 		while end == 0:
 			req = hts + rurl + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
 			try:
@@ -80,10 +82,10 @@ while d <= 31:
 					tryr = 1
 				else:
 					end = 1
-					
+			
 	except Exception as e:
 		print(er + str(e) + ' ' + hts + req + rs)
-	
+		
 	d += 1
 	if d == 32:
 		d = 1
