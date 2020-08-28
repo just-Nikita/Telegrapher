@@ -87,7 +87,7 @@ while d <= 31:
 		print(er + str(e) + ' ' + hts + req + rs)
 		
 	d += 1
-	if d == 32:
+	if d >= 32:
 		d = 1
 		m += 2
 		
