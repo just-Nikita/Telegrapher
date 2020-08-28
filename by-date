@@ -23,9 +23,9 @@ while 1:
 while 1:
 	try:
 		fer = input('Введите кол-во допустимых ошибок (3): ')
-		fer = int(fer)
+		fer = int(fer) - 1
 	except Exception:
-		fer = 3
+		fer = 2
 	break
 	
 link = 'http://telegra.ph/'
