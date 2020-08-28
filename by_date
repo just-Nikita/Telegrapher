@@ -1,4 +1,5 @@
 import urllib.request
+from datetime import datetime
 import os
 os.system('clear')
 while 1:
@@ -37,6 +38,8 @@ er = -1
 rs = '\033[0m'
 f = '\033[32mНашло!: '
 
+print('\n' + str(datetime.today()) + '\n')
+
 while 1:
 	link = 'http://telegra.ph/'
 	req = link + '-' + str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0') + '-' + str(num)
@@ -70,3 +73,5 @@ while 1:
 			
 ff.write('\n')
 ff.close()
+
+print('\n' + str(datetime.today()) + '\n')
