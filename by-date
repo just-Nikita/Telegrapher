@@ -28,7 +28,7 @@ print(banner_M)
 print('\n' + banner_bd)
 while 1:
 	try:
-		m = input("Введите месяц (01): ")
+		m = input(rs + "Введите месяц (01): ")
 		m = int(m)
 	except Exception:
 		m = 1
