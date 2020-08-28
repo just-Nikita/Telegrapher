@@ -45,7 +45,7 @@ while d <= 31:
 		response = urllib.request.urlopen(hts + req)
 		print(f + hts + req + '\033[34m\033[1m ' + str(response.getcode()) + rs)
 		
-		ff.write('\n' + hts+req)
+		ff.write('\n' + hts+req + '\n')
 		num = 2
 		telegra(hts, rurl, m, d, num)
 		
