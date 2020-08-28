@@ -87,9 +87,12 @@ while d <= 31:
 		print(er + str(e) + ' ' + hts + req + rs)
 		
 	d += 1
-	if d >= 32:
-		d = 1
-		m += 2
+	if d == 32:
+		if m <= 12:
+			d = 1
+			m += 1
+		else:
+			break
 		
 ff.write('\n')
 ff.close()
