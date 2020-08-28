@@ -34,7 +34,7 @@ mainvar = str(m).rjust(2, '0') + '-' + str(d).rjust(2, '0')
 ff = open(str(m) + '-' + str(d) + '.txt', 'a')
 
 num = 2
-er = -1
+er = 0
 rs = '\033[0m'
 f = '\033[32mНашло!: '
 
