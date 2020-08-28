@@ -87,6 +87,6 @@ while d <= 31:
 	d += 1
 	if d == 32:
 		d = 1
-		m = 2
+		m += 2
 
 ff.close()
