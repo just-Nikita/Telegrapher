@@ -64,7 +64,7 @@ while 1:
 			
 	except Exception as e:
 		print('Ошибка:' + str(e) + ' ' + req)
-		if er <= fer:
+		if er < fer:
 			print('\033[34mПопробуем ещё раз...' + rs)
 			
 			er += 1
